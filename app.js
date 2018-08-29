@@ -45,7 +45,7 @@ let listhtml =  async (id, passwd)=>{
  
     let classtable = {}
     for(let i = 0; i < year_Length * 2; i++){
-        let classform = await 'ignoreHead=1&setting.kind=std&startWeek=1&project.id=1&semester.id='+semester_id[i]+'&ids='+ids;
+        let classform = await 'ignoreHead=1&setting.kind=std&startWeek=1&project.id=1&semester.id='+semester_id[i+start_year*2]+'&ids='+ids;
         await page.open(url2,'post',classform).then(data=>{
             console.log(data)
         })
@@ -62,7 +62,7 @@ let listhtml =  async (id, passwd)=>{
         //fs.writeFileSync('form.html', form);
         //fs.writeFileSync('list.html', list);
         //console.log(form);
-        classtable[semester[i+start_year]] = classtable_semester 
+        classtable[semester[i]] = classtable_semester 
     }
 
 

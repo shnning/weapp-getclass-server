@@ -77,7 +77,7 @@ let getclass = list=>{
                                     let [startclass, endclass] = mes[2].split('-');
                                     if(endweek == null)endweek = startweek;
                                     let json = {
-                                        type:Math.floor(Math.random() * 100 % 6),
+                                        type:Math.floor(Math.random() * 100 % 9),
                                         classday:weekday(mes[1]),
                                         startweek: parseInt(startweek),
                                         endweek: parseInt(endweek),
@@ -92,7 +92,7 @@ let getclass = list=>{
                             let [startclass, endclass] = mes[2].split('-');
                             if(endweek == null)endweek = startweek;
                             let json = {
-                                type:Math.floor(Math.random() * 100 % 6),
+                                type:Math.floor(Math.random() * 100 % 9),
                                 classday:weekday(mes[1]),
                                 startweek: parseInt(startweek),
                                 endweek: parseInt(endweek),
@@ -111,7 +111,7 @@ let getclass = list=>{
                                     let [startclass, endclass] = mes[1].split('-');
                                     if(endweek == null)endweek = startweek;
                                     let json = {
-                                        type:Math.floor(Math.random() * 100 % 6),
+                                        type:Math.floor(Math.random() * 100 % 9),
                                         classday:weekday(mes[0]),
                                         startweek: parseInt(startweek),
                                         endweek: parseInt(endweek),
@@ -126,7 +126,7 @@ let getclass = list=>{
                             let [startclass, endclass] = mes[1].split('-');
                             if(endweek == null)endweek = startweek;
                             let json = {
-                                type:Math.floor(Math.random() * 100 % 6),
+                                type:Math.floor(Math.random() * 100 % 9),
                                 classday:weekday(mes[0]),
                                 startweek: parseInt(startweek),
                                 endweek: parseInt(endweek),
