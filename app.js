@@ -44,7 +44,11 @@ let listhtml =  async (id, passwd)=>{
     let $ = await cheerio.load(content1);
     let ids = await $('input[name="ids"]').attr('value')
     console.log(ids);
- 
+
+    if(!ids){
+        return ;
+    }
+
     let classtable = {}
     for(let i = 0; i < year_Length * 2; i++){
         let classform = await 'ignoreHead=1&setting.kind=std&startWeek=1&project.id=1&semester.id='+semester_id[i+start_year*2]+'&ids='+ids;
@@ -89,9 +93,15 @@ app.post('/', (req, res)=>{
     let passwd = req.body.passwd;
     console.log(id, passwd)
     let classtable = listhtml(id, passwd).then(data=>{
-        console.log(data)
-        res.send(data);
-    });
+        if(!data){
+            res.sendStatus(300);
+        }else{
+            console.log(data)
+            res.send(data);
+        }
+    }).catch(err=>{
+        res.sendStatus(300);
+    })
 
     //console.log(classtable);
 })
