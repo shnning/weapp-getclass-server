@@ -29,6 +29,8 @@ let listhtml =  async (id, passwd)=>{
     let gocollege_Year = parseInt(id.slice(0,4))
     let year_Length = year - gocollege_Year + 1 //需要获取几个学期的课程表
     let start_year = gocollege_Year - 2015 //从哪一年开始
+    console.log('year_Length: '+year_Length)
+    console.log('start_year: '+start_year)
 //登陆翱翔门户，获取ids属性
     let usrform='username='+id+'&password='+passwd+'&encodedPassword=&session_locale=zh_CN';
     const instance = await phantom.create();
@@ -46,6 +48,8 @@ let listhtml =  async (id, passwd)=>{
     let classtable = {}
     for(let i = 0; i < year_Length * 2; i++){
         let classform = await 'ignoreHead=1&setting.kind=std&startWeek=1&project.id=1&semester.id='+semester_id[i+start_year*2]+'&ids='+ids;
+        console.log('semester_id:'+semester_id[i+start_year*2])
+
         await page.open(url2,'post',classform).then(data=>{
             console.log(data)
         })
